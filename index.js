@@ -3,11 +3,12 @@ const $openModalBtn = document.querySelector('[data-open_modal]')
 const $modalAdd = document.querySelector('[data-form-add]')
 const $closeModal = document.querySelector('[data-close_modal]')
 const $showCatDOM = document.querySelector('[data-show-cat]')
-
+const $nameInput = document.forms.add_cat.name
+const dataFromLocalStorage = localStorage.getItem($nameInput) ? JSON.parse(localStorage.getItem($nameInput)) : undefined;
 
 const generateCardCat = (cat) => {
   return `
-  <div data-card_id=${cat.id} class="card" style="">
+  <div data-card_id=${cat.id} class="card align-items-start" style="">
       <img src="${cat.img_link}" class="card-img-top" alt="${cat.name}">
       <div class="card-body">
           <h5 class="card-title">${cat.name}, ${cat.age}</h5>
@@ -111,6 +112,19 @@ $wr.addEventListener('click', (e) => {
   }
 })
 
+document.forms.add_cat.addEventListener('input', (e) => {
+  e.stopPropagation()
+  const formDataObj = Object.fromEntries(new FormData(document.forms.add_cat).entries())
+  localStorage.setItem($nameInput, JSON.stringify(formDataObj))
+})
+
+if (dataFromLocalStorage) {
+  console.log(dataFromLocalStorage);
+  Object.keys(dataFromLocalStorage).forEach(key => {
+    document.forms.add_cat[key].value = dataFromLocalStorage[key]
+  })
+}
+
 document.forms.add_cat.addEventListener('submit', (e) => {
   e.preventDefault()
   const data = Object.fromEntries(new FormData(e.target).entries())
@@ -123,6 +137,7 @@ document.forms.add_cat.addEventListener('submit', (e) => {
     $wr.insertAdjacentHTML('beforeend', generateCardCat(data))
     $modalAdd.classList.add('hidden')
     e.target.reset()
+    localStorage.removeItem($nameInput)
   }).catch(alert)
 })
 
@@ -130,7 +145,7 @@ $openModalBtn.addEventListener('click', () => {
   $modalAdd.classList.remove('hidden')
 })
 
-$closeModal.addEventListener('click', () => {
+$closeModal.addEventListener('click', (e) => {
   $modalAdd.classList.add('hidden')
 })
 
@@ -139,3 +154,4 @@ $showCatDOM.addEventListener('click', (e) => {
     $showCatDOM.classList.add('hidden')
   }
 })
+
