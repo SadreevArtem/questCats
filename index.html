@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Cats Tinder</title>
+    <script defer src="index.js"></script>
+  </head>
+  <body>
+    <header>
+      <i class="fa-solid fa-gear"></i>
+      <h3><i class="fa-solid fa-fire"></i> Cats tinder</h3>
+      <button data-open_modal class="btn btn-primary visible">Register</button>
+    </header>
+    <div class="container">
+      <div data-wr class="">
+      </div>
+    </div>
+
+    <div data-form-add class="modal-wr hidden">
+      <div class="custom-modal">
+        <form name="add_cat" class="">
+          <div class="mb-3">
+            <input
+              placeholder="Id"
+              required
+              name="id"
+              type="number"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              placeholder="Age"
+              required
+              name="age"
+              type="number"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              placeholder="Name"
+              required
+              name="name"
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              placeholder="Rate"
+              name="rate"
+              type="range" min="1" max="10" step="1" value="5"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+            <label class="form-check-label" for="exampleInputEmail1">Input rate(between 1 and 10)</label>
+          </div>
+          <div class="mb-3">
+            <input
+              placeholder="Description"
+              name="description"
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3 form-check">
+            <input
+              type="checkbox"
+              name="favorite"
+              class="form-check-input"
+              id="exampleCheck1"
+            />
+            <label class="form-check-label" for="exampleCheck1">favorite</label>
+          </div>
+
+          <div class="mb-3">
+            <input
+              placeholder="Pic link"
+              name="img_link"
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button data-close_modal type="submit" class="btn btn-danger">Close</button>
+        </form>
+      </div>
+    </div>
+    <div data-show-cat class="modal-wr hidden">
+      
+    </div>
+  </body>
+</html>

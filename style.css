@@ -1,0 +1,54 @@
+body{
+  height: auto;
+  position: relative;
+  padding: 0;
+}
+
+[data-wr] {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 20px;
+  margin-top: 10px;
+  
+}
+header h3 {
+  color: indianred;
+}
+header i {
+  font-size: 30px;
+}
+
+
+.modal-wr {
+  min-height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 9;
+  background: rgba(0, 0, 0, .5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-modal{
+  background: rgb(232, 219, 215);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.hidden{
+  display: none;
+}
+
+.show-cat img{
+  height: 50vh;
+}
